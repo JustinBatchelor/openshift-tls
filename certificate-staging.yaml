@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: ingress-wildcard-staging
+  namespace: openshift-ingress
+spec:
+  secretName: ingress-wildcard-staging-tls
+  dnsNames:
+    - apps.sno.batchelor.live
+    - "*.apps.sno.batchelor.live"
+  issuerRef:
+    name: letsencrypt-staging-cloudflare
+    kind: ClusterIssuer
+    group: cert-manager.io
